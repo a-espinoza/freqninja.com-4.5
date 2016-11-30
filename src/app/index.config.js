@@ -17,11 +17,11 @@
     FormioAuthProvider.register('login', 'user', 'user/login');
     FormioAuthProvider.register('register', 'user', 'user/register');
 
-    // This will be your groups Form.io API url.
+    // This will be your races Form.io API url.
     var appUrl = 'https://tilqtcosdfstyvc.form.io';
-    FormioResourceProvider.register('group', appUrl + '/group', {
+    FormioResourceProvider.register('race', appUrl + '/race', {
       templates: {
-        view: 'views/group/view.html'
+        view: 'views/race/view.html'
       },
       controllers: {
         create: [
@@ -37,7 +37,7 @@
           '$http',
           function($scope, $stateParams, Formio, $http) {
             $scope.selfies = [];
-            $http.get(appUrl + '/selfie/submission?limit=100&data.group._id=' + $stateParams.groupId, {
+            $http.get(appUrl + '/selfie/submission?limit=100&data.race._id=' + $stateParams.raceId, {
               headers: {
                 'x-jwt-token': Formio.getToken()
               }
@@ -50,11 +50,11 @@
     });
 
     FormioResourceProvider.register('selfie', appUrl + '/selfie', {
-      parent: 'group',
+      parent: 'race',
       controllers: {
         create: ['$scope', '$state', '$stateParams', function($scope, $state, $stateParams) {
           $scope.$on('formSubmission', function() {
-            $state.go('group.view', {groupId: $stateParams.groupId});
+            $state.go('race.view', {raceId: $stateParams.raceId});
           });
           return {handle: true};
         }]

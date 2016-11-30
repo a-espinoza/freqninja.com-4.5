@@ -1,0 +1,13 @@
+<br/>
+<div class="row">
+  <div class="col-xs-4 col-md-2" ng-repeat="race in races">
+    <a ui-sref="race.view({raceId:'{{ race._id }}'})" class="thumbnail">
+      <li class="list-race-name" ng-repeat="race in races"><a ui-sref="race.view({raceId: race._id})">{{ race.data.title }}</a></li>
+
+    </a>
+  </div>
+</div>
+<button ng-if="currentResource.resource.data.status === 'open'" class="btn btn-primary" ui-sref="raceCreate()">
+  <i class="fa fa-check"></i> New Selfie
+</button>
+<br/>
