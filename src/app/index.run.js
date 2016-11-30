@@ -6,9 +6,8 @@
     .run(runBlock);
 
   /** @ngInject */
-  function runBlock($log) {
-
-    $log.debug('runBlock end');
+  function runBlock(FormioAuth) {
+    FormioAuth.init();
   }
 
 })();
