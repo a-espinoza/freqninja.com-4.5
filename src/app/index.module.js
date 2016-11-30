@@ -2,6 +2,14 @@
   'use strict';
 
   angular
-    .module('myapp', ['ngSanitize', 'ngMessages', 'ngAria', 'ui.router', 'ui.bootstrap', 'toastr']);
-
+    .module('myapp', [
+      'ngSanitize',
+       'ngMessages',
+        'ngAria',
+         'ui.router',
+          'ui.bootstrap',
+           'toastr',
+             'formio',
+              'ngFormioHelper'
+            ]);
 })();
