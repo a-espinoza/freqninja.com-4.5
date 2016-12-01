@@ -10,7 +10,7 @@
           <div class="well" style="text-align:center;" ng-if="noraces">
             <p>You currently do not have any races!</p>
           </div>
-          <li class="list-race-item" ng-repeat="race in races"><a ui-sref="race.view({raceId: race._id})">{{ race.data.title }}</a></li>
+          <li class="list-race-item" ng-repeat="race in races"><a ui-sref="race.view({raceId: race.name})">{{ race.data.name }}</a></li>
         </ul>
       </div>
     </div>
@@ -18,8 +18,8 @@
   <div class="col col-sm-6">
     <div class="panel panel-primary">
       <div class="panel-body">
-        <button class="btn btn-primary btn-block" ui-sref="find()"><i class="fa fa-sign-in"></i> JOIN a Rce</button>
-        <button class="btn btn-primary btn-block" ui-sref="raceCreate()"><i class="fa fa-flag-checkered"></i> START a Race</button>
+        <button class="btn btn-primary btn-block" ui-sref="find()"><i class="fa fa-sign-in"></i> JOIN RACE</button>
+        <button class="btn btn-primary btn-block" ui-sref="raceCreate()"><i class="fa fa-flag-checkered"></i> START RACE</button>
       </div>
     </div>
   </div>

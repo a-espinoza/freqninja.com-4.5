@@ -20,7 +20,7 @@
           // Get all of my selfies.
           $http.get(appUrl + '/selfie/submission?owner=' + $rootScope.user._id, {headers: {'x-jwt-token': Formio.getToken()}}).then(function(result) {
             result.data.forEach(function(selfie) {
-              if (selfie.data.race && selfie.data.race._id && selfie.data.race.data.title) {
+              if (selfie.data.race && selfie.data.race._id && selfie.data.race.data.name) {
                 $scope.races[selfie.data.race._id] = selfie.data.race;
               }
             });
@@ -30,7 +30,7 @@
           // Get all of my races that I created.
           $http.get(appUrl + '/race/submission?owner=' + $rootScope.user._id, {headers: {'x-jwt-token': Formio.getToken()}}).then(function(result) {
             result.data.forEach(function(race) {
-              if (race && race._id && race.data.title) {
+              if (race && race._id && race.data.name) {
                 $scope.races[race._id] = race;
               }
             });
